@@ -1,0 +1,20 @@
+version: '2.0'
+
+services:
+
+   logstash:
+      image: ${DOCKER_REPO}/${APP_NAME}
+      container_name: ${CONTAINER_NAME}
+      hostname:  ${HOSTNAME}
+      ports:
+         - "514:514"
+         - "5044:5044"
+      environment:
+         - ENV_JVM_Xms=8g
+         - ENV_JVM_Xmx=8g
+
+
+#      volumes:
+#        - /opt/docker/logstash/etc:/etc/logstash/conf.d
+#        - /var/result/logstash/log:/var/log/logstash
+#        - /var/result/logstash/log:/var/result
